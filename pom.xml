@@ -13,14 +13,41 @@
 	<name>WebHelp Feedback Mailer</name>
 	<description>WebHelp Feedback module to send email notifications.</description>
 	
-	<dependencies>
+	<packaging>jar</packaging>
+	
+	<dependencies>		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+			<scope>provided</scope>			
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
+			<artifactId>spring-boot-starter</artifactId>
+			<scope>provided</scope>			
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
 		</dependency>
 
 		<!-- testing -->
@@ -33,6 +60,7 @@
 			<groupId>com.icegreen</groupId>
 			<artifactId>greenmail</artifactId>
 			<version>1.5.5</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.testng</groupId>
