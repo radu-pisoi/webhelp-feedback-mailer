@@ -1,4 +1,4 @@
-package com.test.email;
+package com.oxygenxml.webhelp.feedback.email;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -11,6 +11,7 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -22,6 +23,7 @@ import com.icegreen.greenmail.util.ServerSetup;
 @SpringBootTest
 @ActiveProfiles("test")
 //@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = {EmailService.class, MailConfiguration.class})
 public class SpringMailIntegrationTest extends AbstractTestNGSpringContextTests  {
 
     @Autowired

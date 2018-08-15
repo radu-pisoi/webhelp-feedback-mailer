@@ -1,4 +1,4 @@
-package com.test.email;
+package com.oxygenxml.webhelp.feedback.email;
 
 import com.icegreen.greenmail.util.GreenMail;
 import com.icegreen.greenmail.util.ServerSetup;

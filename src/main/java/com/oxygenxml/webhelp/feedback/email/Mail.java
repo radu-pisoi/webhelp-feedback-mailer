@@ -1,4 +1,4 @@
-package com.test.email;
+package com.oxygenxml.webhelp.feedback.email;
 public class Mail {
 
     private String from;
