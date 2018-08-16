@@ -70,7 +70,9 @@
 	
 	<dependencyManagement>
 		<dependencies>
-			<!-- Spring Boot dependencies -->
+			<!-- 
+				Spring Boot dependencies 
+			-->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
