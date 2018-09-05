@@ -1,7 +1,10 @@
 package com.oxygenxml.webhelp.feedback.email;
 
 import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +28,6 @@ import freemarker.template.TemplateException;
 
 @SpringBootTest
 @ActiveProfiles("test")
-//@RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {EmailService.class, MailConfiguration.class, FreemarkerConfig.class})
 public class SpringMailIntegrationTest extends AbstractTestNGSpringContextTests  {
 
@@ -60,7 +62,6 @@ public class SpringMailIntegrationTest extends AbstractTestNGSpringContextTests 
         mail.setFrom("no-reply@memorynotfound.com");
         mail.setTo("info@memorynotfound.com");
         mail.setSubject("Spring Mail Integration Testing with JUnit and GreenMail Example");
-        //mail.setContent("We show how to write Integration Tests using Spring and GreenMail.");
         Map<String, String> model = new HashMap<String, String>();
 		model.put("name", "Test Name");
 		model.put("signature", "https://www.test.ro");
@@ -69,12 +70,20 @@ public class SpringMailIntegrationTest extends AbstractTestNGSpringContextTests 
 
         MimeMessage[] receivedMessages = getMessages();
         assertEquals(1, receivedMessages.length);
-
+        
         MimeMessage current = receivedMessages[0];
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        current.writeTo(stream);
+        String finalString = new String(stream.toByteArray());
 
+        System.out.println(finalString);
+        System.out.println(current.getContent() + "coccocasdoa");
         assertEquals(mail.getSubject(), current.getSubject());
         assertEquals(mail.getTo(), current.getAllRecipients()[0].toString());
-        //assertTrue(String.valueOf(current.getContent()).contains(mail.getContent()));
+        assertNotNull(current);
+        System.out.println("iiiiiiiiii" + String.valueOf(current.getContentType()));
+       
+        assertTrue(finalString.contains("Test"));
     }
 
 }

@@ -1,23 +1,5 @@
 package com.oxygenxml.webhelp.feedback.email;
 
-/*@Service
-public class EmailService {
-
-    @Autowired
-    private JavaMailSender emailSender;
-
-    public void sendSimpleMessage(Mail mail){
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setSubject(mail.getSubject());
-        //message.setText(mail.getContent());
-        message.setTo(mail.getTo());
-        message.setFrom(mail.getFrom());
-
-        emailSender.send(message);
-    }
-
-}*/
-
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
