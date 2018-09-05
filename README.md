@@ -1,6 +1,6 @@
 # WebHelp Feedback Mailer
 
-Module used to send email notification for various feedback events: feedback message need to be approved, new account have been created, etc.
+Module used to send email notifications for various feedback events: feedback message need to be approved, new account have been created, etc.
 
 Technologies:
 * JavaMail API - https://javaee.github.io/javamail/
