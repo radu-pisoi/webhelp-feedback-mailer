@@ -9,6 +9,6 @@ Technologies:
 Resources:
 * [An Introduction To Building And Sending HTML Email For Web Developers](https://www.smashingmagazine.com/2017/01/introduction-building-sending-html-email-for-web-developers/)
 
-CI: https://travis-ci.org/radu-pisoi/webhelp-feedback-mailer
+[Continuous integration with Travis](https://travis-ci.org/radu-pisoi/webhelp-feedback-mailer)
 
 Sonar: https://sonarcloud.io/dashboard?id=com.oxygenxml%3Aoxygen-webhelp-feedback-mailer
