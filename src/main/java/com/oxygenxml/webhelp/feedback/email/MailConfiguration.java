@@ -1,5 +1,6 @@
 package com.oxygenxml.webhelp.feedback.email;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -13,13 +14,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.util.ClassUtils;
 
 /**
  * Configuration for {@link JavaMailSender}.
  */
 @Configuration
-@PropertySource("classpath:mail.properties")
+@PropertySource("file:config/mail.properties")
 public class MailConfiguration {	
 	/**
 	 * Logger for logging.
@@ -63,7 +63,7 @@ public class MailConfiguration {
 		JavaMailSenderImpl mailSender = null;
 		try {
 			mailSender = new JavaMailSenderImpl();
-			InputStream resourceAsStream = ClassUtils.getDefaultClassLoader().getResourceAsStream("mail.properties");
+			InputStream resourceAsStream = new FileInputStream("config/mail.properties");
 			
 			Properties mailProperties = new Properties();
 			mailProperties.load(resourceAsStream);
