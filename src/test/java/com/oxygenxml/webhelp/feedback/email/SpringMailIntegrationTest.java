@@ -1,7 +1,7 @@
 package com.oxygenxml.webhelp.feedback.email;
 
 import static org.junit.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
@@ -80,7 +80,7 @@ public class SpringMailIntegrationTest extends AbstractTestNGSpringContextTests 
         System.out.println(current.getContent() + "coccocasdoa");
         assertEquals(mail.getSubject(), current.getSubject());
         assertEquals(mail.getTo(), current.getAllRecipients()[0].toString());
-        assertNotNull(current);
+        assertNull(current);
         System.out.println("iiiiiiiiii" + String.valueOf(current.getContentType()));
        
         assertTrue(finalString.contains("Test"));
