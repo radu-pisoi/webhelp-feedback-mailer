@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.helpers.MessageFormatter;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -18,8 +21,12 @@ import org.springframework.util.ClassUtils;
  */
 @Configuration
 @PropertySource("classpath:mail.properties")
-public class MailConfiguration {
-	
+public class MailConfiguration {	
+	/**
+	 * Logger for logging.
+	 */
+	Logger logger = LoggerFactory.getLogger(MailConfiguration.class);
+	 
 	/**
 	 * Mail protocol
 	 */
@@ -61,10 +68,13 @@ public class MailConfiguration {
 			
 			Properties mailProperties = new Properties();
 			mailProperties.load(resourceAsStream);
-			System.out.println("Mail properties: " + mailProperties);
+			
+			
+			if (logger.isDebugEnabled()) {
+				logger.debug(String.format("Mail properties: %s", mailProperties));
+			}
 			
 			mailSender.setJavaMailProperties(mailProperties);
-			
 			mailSender.setProtocol(protocol);
 			mailSender.setHost(host);
 			mailSender.setPort(port);
