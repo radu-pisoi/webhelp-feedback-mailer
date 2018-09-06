@@ -4,7 +4,7 @@ Module used to send email notifications for various feedback events: feedback me
 
 Tools:
 * [Travis](https://travis-ci.org/radu-pisoi/webhelp-feedback-mailer) for continuous integration
-* [SonarCloud](https://sonarcloud.io/dashboard?id=com.oxygenxml%3Aoxygen-webhelp-feedback-mailer) for continuous Code Quality
+* [SonarCloud](https://sonarcloud.io/dashboard?id=com.oxygenxml%3Aoxygen-webhelp-feedback-mailer) for continuous code quality
 
 Technologies:
 * [JavaMail API](https://javaee.github.io/javamail/)
