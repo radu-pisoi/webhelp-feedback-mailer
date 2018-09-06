@@ -2,9 +2,9 @@ package com.oxygenxml.webhelp.feedback.email;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /**
  * Mail model
- *
  */
 public class Mail {
 	/**
@@ -86,6 +86,7 @@ public class Mail {
     }
     /**
      * Setter
+     * 
      * @param model hashmap fields and values
      */
     public void setModel(Map<String, String> model) {

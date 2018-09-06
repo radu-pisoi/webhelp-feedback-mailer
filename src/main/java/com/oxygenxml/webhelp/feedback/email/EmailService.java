@@ -28,6 +28,7 @@ public class EmailService {
 	 */
 	@Autowired
 	private JavaMailSender emailSender;
+	
 	/**
 	 * Configuration bean
 	 */
@@ -42,7 +43,7 @@ public class EmailService {
 	 * @throws IOException
 	 * @throws TemplateException
 	 */
-	public void sendSimpleMessage(Mail mail, String template) throws MessagingException, IOException, TemplateException {
+	public void sendMessage(Mail mail, String template) throws MessagingException, IOException, TemplateException {
 		MimeMessage message = emailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
 				StandardCharsets.UTF_8.name());
