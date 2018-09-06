@@ -3,8 +3,8 @@
 Module used to send email notifications for various feedback events: feedback message need to be approved, new account have been created, etc.
 
 Tools:
-* [Continuous integration with Travis](https://travis-ci.org/radu-pisoi/webhelp-feedback-mailer)
-* [Continuous Code Quality](https://sonarcloud.io/dashboard?id=com.oxygenxml%3Aoxygen-webhelp-feedback-mailer)
+* [Travis](https://travis-ci.org/radu-pisoi/webhelp-feedback-mailer) for continuous integration
+* [SonarCloud](https://sonarcloud.io/dashboard?id=com.oxygenxml%3Aoxygen-webhelp-feedback-mailer) for continuous Code Quality
 
 Technologies:
 * [JavaMail API](https://javaee.github.io/javamail/)
