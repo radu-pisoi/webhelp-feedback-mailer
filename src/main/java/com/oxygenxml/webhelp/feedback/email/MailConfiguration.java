@@ -59,7 +59,7 @@ public class MailConfiguration {
     
     
 	@Bean
-	JavaMailSender getJavaMailSender() throws BeanCreationException {
+	JavaMailSender getJavaMailSender() {
 		JavaMailSenderImpl mailSender = null;
 		try {
 			mailSender = new JavaMailSenderImpl();

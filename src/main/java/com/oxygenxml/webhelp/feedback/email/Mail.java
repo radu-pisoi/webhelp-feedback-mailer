@@ -25,7 +25,7 @@ public class Mail {
     /**
      * A hashmap used to fill the html template with specific values
      */
-    private Map<String, String> model = new HashMap<String, String>();
+    private Map<String, String> model = new HashMap<>();
 
     /**
      * Getter
