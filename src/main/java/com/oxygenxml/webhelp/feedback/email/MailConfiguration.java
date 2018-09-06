@@ -46,8 +46,6 @@ public class MailConfiguration {
     
     /**
 	 * Mail password. 
-	 * 
-	 * TODO: Should we crypt the password?!?!?
 	 */
     @Value("${mail.smtp.password}")
     private String password;

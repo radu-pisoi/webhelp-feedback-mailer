@@ -2,6 +2,7 @@ package com.oxygenxml.webhelp.feedback.email;
 
 
 import java.io.IOException;
+
 import java.nio.charset.StandardCharsets;
 
 import javax.mail.MessagingException;
@@ -18,7 +19,6 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 /**
  * Email service
- *
  */
 @Service
 public class EmailService {
