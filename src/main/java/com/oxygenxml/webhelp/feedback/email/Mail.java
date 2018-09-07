@@ -5,38 +5,42 @@ import java.util.Map;
 
 /**
  * Mail model
+ * 
+ * TODO: Rename class to FeedbackMail or FeedbackMailInfo. It stores information about a mail that sent for feedbackEvent. 
  */
 public class Mail {
+	
 	/**
-	 * From field of the email
+	 * From information of the email. Who send the email.
 	 */
     private String from;
     /**
-     * To field of the email
+     * To field of the email.
      */
     private String to;
     /**
-     * Subject of the email
+     * Subject of the email.
      */
     private String subject;
     /**
-     * Body of the email
+     * Body of the email.
      */
     /**
-     * A hashmap used to fill the html template with specific values
+     * A hashmap used to fill the html template with specific values.
      */
     private Map<String, String> model = new HashMap<>();
 
     /**
-     * Getter
-     * @return string value of from
+     * @return Getter for 'from' information of mail.
      */
     public String getFrom() {
         return from;
     }
+    
     /**
-     * Setter
-     * @param from Who sends the email
+     * Setter for who sends the email
+     * 
+     * @param from Set from information. 
      */
     public void setFrom(String from) {
         this.from = from;
@@ -73,8 +77,7 @@ public class Mail {
     
     
     /**
-     * Overridden toString method
-     * Returns the object as String
+     * Returns the string representation. It can be used for logging.
      */
     @Override
     public String toString() {
