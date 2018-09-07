@@ -71,7 +71,6 @@ public class MailConfiguration {
 	JavaMailSender getJavaMailSender() {
 		JavaMailSenderImpl mailSender = null;
 		
-		logger.debug("Mail conf path: " + mailConfigurationPath);
 		//try-with-resources statement 
 		try (InputStream resourceAsStream = new FileInputStream(mailConfigurationPath + "/mail.properties")) {
 			
