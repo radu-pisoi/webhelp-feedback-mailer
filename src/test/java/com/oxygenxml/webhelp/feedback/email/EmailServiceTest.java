@@ -3,12 +3,10 @@ package com.oxygenxml.webhelp.feedback.email;
 import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.mail.BodyPart;
-import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.internet.MimeMessage;
 
@@ -16,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -27,6 +26,7 @@ import com.icegreen.greenmail.util.ServerSetup;
 /**
  * Test case for {@link EmailService}.
  */
+@TestPropertySource("file:src/test/resources/issue-6/application.properties")
 @ContextConfiguration(classes = {EmailService.class, MailConfiguration.class, FreemarkerConfig.class})
 public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
 	
