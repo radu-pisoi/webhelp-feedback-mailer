@@ -80,7 +80,7 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
         MimeMessage current = receivedMessages[0];        
         String htmlContent = getHTMLPartContent((Multipart) current.getContent());        
         logger.debug("Email content: " + htmlContent);
-        assertTrue(htmlContent.contains("Test"));
+        assertTrue(htmlContent.contains("<p class=\"hello\">Hello Test Name,</p>"));
         
         assertEquals("Email subject should be preserved", mail.getSubject(), current.getSubject());
         assertEquals("Email 'to' info should be preserved", mail.getTo(), current.getAllRecipients()[0].toString());
@@ -88,14 +88,13 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
     }
     
     /**
-     * Extract from email the first HTML part.
+     * Extract from email multipart the content of first part with HTML content type.
      * 
-     * @param message The message to check.
+     * @param multipart The email multipart to check.
      * @return The content of the first HTML part.
-     * @throws MessagingException 
-     * @throws IOException 
+     * @throws Exception When HTL part cannot be extracted. 
      */
-    private String getHTMLPartContent(Multipart multipart) throws IOException, MessagingException {    	    	
+    private String getHTMLPartContent(Multipart multipart) throws Exception {    	    	
     	String htmlContent = null;
     	
     	// Iterate over parts to find HTML part
