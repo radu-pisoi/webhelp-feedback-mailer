@@ -1,0 +1,7 @@
+autoEnabled=true
+eclipse.preferences.version=1
+extraProperties=
+fileExclusions=
+moduleKey=com.oxygenxml\:oxygen-webhelp-feedback-mailer
+projectKey=com.oxygenxml\:oxygen-webhelp-feedback-mailer
+serverId=SonarCloud/radu-pisoi-github
