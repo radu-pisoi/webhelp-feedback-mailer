@@ -37,6 +37,8 @@ public class FreemarkerConfig {
 		if (templatesPath == null) {
 			// Set default value
 			templatesPath = "file:templates/";
+		} else {
+			templatesPath = "file:" + templatesPath;
 		}
 		
 		bean.setTemplateLoaderPath(templatesPath);
