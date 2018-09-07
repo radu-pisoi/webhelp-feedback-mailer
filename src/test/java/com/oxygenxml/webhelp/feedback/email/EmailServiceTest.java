@@ -3,12 +3,10 @@ package com.oxygenxml.webhelp.feedback.email;
 import static org.junit.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.mail.BodyPart;
-import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.internet.MimeMessage;
 
@@ -16,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -27,6 +26,7 @@ import com.icegreen.greenmail.util.ServerSetup;
 /**
  * Test case for {@link EmailService}.
  */
+@TestPropertySource("file:src/test/resources/issue-6/application.properties")
 @ContextConfiguration(classes = {EmailService.class, MailConfiguration.class, FreemarkerConfig.class})
 public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
 	
@@ -80,7 +80,7 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
         MimeMessage current = receivedMessages[0];        
         String htmlContent = getHTMLPartContent((Multipart) current.getContent());        
         logger.debug("Email content: " + htmlContent);
-        assertTrue(htmlContent.contains("Test"));
+        assertTrue(htmlContent.contains("<p class=\"hello\">Hello Test Name,</p>"));
         
         assertEquals("Email subject should be preserved", mail.getSubject(), current.getSubject());
         assertEquals("Email 'to' info should be preserved", mail.getTo(), current.getAllRecipients()[0].toString());
@@ -88,14 +88,13 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
     }
     
     /**
-     * Extract from email the first HTML part.
+     * Extract from email multipart the content of first part with HTML content type.
      * 
-     * @param message The message to check.
+     * @param multipart The email multipart to check.
      * @return The content of the first HTML part.
-     * @throws MessagingException 
-     * @throws IOException 
+     * @throws Exception When HTL part cannot be extracted. 
      */
-    private String getHTMLPartContent(Multipart multipart) throws IOException, MessagingException {    	    	
+    private String getHTMLPartContent(Multipart multipart) throws Exception {    	    	
     	String htmlContent = null;
     	
     	// Iterate over parts to find HTML part
