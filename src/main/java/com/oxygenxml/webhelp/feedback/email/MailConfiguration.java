@@ -57,17 +57,19 @@ public class MailConfiguration {
     private String password;
     
     
-    
+    /**
+     * Configures the {@link JavaMailSender} from an external configuration file
+     * @return {@link JavaMailSender}
+     */
 	@Bean
 	JavaMailSender getJavaMailSender() {
 		JavaMailSenderImpl mailSender = null;
-		try {
-			mailSender = new JavaMailSenderImpl();
-			InputStream resourceAsStream = new FileInputStream("config/mail.properties");
+		//try-with-resources statement 
+		try (InputStream resourceAsStream = new FileInputStream("config/mail.properties")) {
 			
+			mailSender = new JavaMailSenderImpl();
 			Properties mailProperties = new Properties();
 			mailProperties.load(resourceAsStream);
-			
 			
 			if (logger.isDebugEnabled()) {
 				logger.debug(String.format("Mail properties: %s", mailProperties));
