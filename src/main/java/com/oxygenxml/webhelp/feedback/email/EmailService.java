@@ -38,12 +38,13 @@ public class EmailService {
 	/**
 	 * Builds up and sends an email using Freemarker template.
 	 * @param mail 	The mail object to be sent
+	 * @param template The name of the template to be used
 	 * 
-	 * @throws MessagingException
-	 * @throws IOException
-	 * @throws TemplateException
+	 * @throws MessagingException if message creation failed
+	 * @throws IOException	if the template wasn't found or could not be read
+	 * @throws TemplateException if the template could not be rendered
 	 */
-	public void sendMessage(Mail mail, String template) throws MessagingException, IOException, TemplateException {
+	public void sendMessage(FeedbackMail mail, String template) throws MessagingException, IOException, TemplateException {
 		MimeMessage message = emailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
 				StandardCharsets.UTF_8.name());

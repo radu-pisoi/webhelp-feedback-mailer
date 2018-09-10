@@ -19,7 +19,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
  * Configuration for {@link JavaMailSender}.
  */
 @Configuration
-@PropertySource("file:config/mail.properties")
+@PropertySource("file:${mail.config.path}/mail.properties")
 public class MailConfiguration {	
 	/**
 	 * Logger for logging.
@@ -58,14 +58,21 @@ public class MailConfiguration {
     
     
     /**
+	 * Main configuration path. 
+	 */
+    @Value("${mail.config.path}")
+    private String mailConfigurationPath;
+    
+    /**
      * Configures the {@link JavaMailSender} from an external configuration file
      * @return {@link JavaMailSender}
      */
 	@Bean
 	JavaMailSender getJavaMailSender() {
 		JavaMailSenderImpl mailSender = null;
+		
 		//try-with-resources statement 
-		try (InputStream resourceAsStream = new FileInputStream("config/mail.properties")) {
+		try (InputStream resourceAsStream = new FileInputStream(mailConfigurationPath + "/mail.properties")) {
 			
 			mailSender = new JavaMailSenderImpl();
 			Properties mailProperties = new Properties();

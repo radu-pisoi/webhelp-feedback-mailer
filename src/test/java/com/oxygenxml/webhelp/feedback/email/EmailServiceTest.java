@@ -36,12 +36,18 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
 	private static final Logger logger = LoggerFactory.getLogger(EmailServiceTest.class);
 	
 	/**
-	 * Email service
+	 * Email service.
 	 */
     @Autowired
     private EmailService emailService;
-
+    /**
+     * Greenmail server.
+     */
     private GreenMail smtpServer;
+    
+    /**
+     * Starts the server before the test run.
+     */
     
     @BeforeClass
     public void beforeClass() {
@@ -49,7 +55,10 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
     	smtpServer = new GreenMail(new ServerSetup(2525, null, "smtp"));
     	smtpServer.start();
 	}
-
+    
+    /**
+     * Closes the server after the test run.
+     */
     @AfterClass
     protected void afterClass() {
     	System.out.println("Stop server...");
@@ -59,11 +68,13 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
     /**
      * Test for sending a simple message.
      * 
-     * @throws Exception
+     * @throws Exception  if message creation failed or
+     * if the template wasn't found or could not be read
+     * or if the template could not be rendered.
      */
     @Test
     public void testSendingSimpleMessage() throws Exception {
-        Mail mail = new Mail();
+        FeedbackMail mail = new FeedbackMail();
         mail.setFrom("no-reply@memorynotfound.com");
         mail.setTo("info@memorynotfound.com");
         mail.setSubject("Spring Mail Integration Testing with JUnit and GreenMail Example");
