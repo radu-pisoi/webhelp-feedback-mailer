@@ -27,7 +27,7 @@ import com.icegreen.greenmail.util.ServerSetup;
  * Test case for {@link EmailService}.
  */
 @TestPropertySource("file:src/test/resources/issue-6/application.properties")
-@ContextConfiguration(classes = {EmailService.class, MailConfiguration.class, FreemarkerConfig.class})
+@ContextConfiguration(classes = {EmailService.class, FeedbackMailerConfiguration.class})
 public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
 	
 	/**
@@ -74,7 +74,7 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
      */
     @Test
     public void testSendingSimpleMessage() throws Exception {
-        FeedbackMail mail = new FeedbackMail();
+        FeedbackEmail mail = new FeedbackEmail();
         mail.setFrom("no-reply@memorynotfound.com");
         mail.setTo("info@memorynotfound.com");
         mail.setSubject("Spring Mail Integration Testing with JUnit and GreenMail Example");
