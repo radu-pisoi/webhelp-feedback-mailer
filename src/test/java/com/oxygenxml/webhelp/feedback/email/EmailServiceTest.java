@@ -82,7 +82,8 @@ public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
 		model.put("name", "Test Name");
 		model.put("signature", "https://www.test.ro");
 		mail.setModel(model);
-        emailService.sendMessage(mail, "email-template.ftl");
+		mail.setTemplateName("email-template.ftl");
+        emailService.sendMessage(mail);
 
         MimeMessage[] receivedMessages = smtpServer.getReceivedMessages();
         assertEquals("We need to receive the email sent.", 1, receivedMessages.length);

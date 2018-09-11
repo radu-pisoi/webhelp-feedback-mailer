@@ -44,13 +44,13 @@ public class EmailService {
 	 * @throws IOException	if the template wasn't found or could not be read
 	 * @throws TemplateException if the template could not be rendered
 	 */
-	public void sendMessage(FeedbackMail mail, String template) throws MessagingException, IOException, TemplateException {
+	public void sendMessage(FeedbackMail mail) throws MessagingException, IOException, TemplateException {
 		MimeMessage message = emailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
 				StandardCharsets.UTF_8.name());
 		
 		//Completes the template's fields using the mail's model.
-		Template t = freemarkerConfig.getTemplate(template);
+		Template t = freemarkerConfig.getTemplate(mail.getTemplateName());
 		String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, mail.getModel());
 		
 		//Fills the message's fields

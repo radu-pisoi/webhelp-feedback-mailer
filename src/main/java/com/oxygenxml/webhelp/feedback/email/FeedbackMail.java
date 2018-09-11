@@ -28,6 +28,10 @@ public class FeedbackMail {
      * A hashmap used to fill the html template with specific values.
      */
     private Map<String, String> model = new HashMap<>();
+    /**
+     * The name of the template
+     */
+    private String templateName;
 
     /**
      * @return Getter for 'from' information of mail.
@@ -71,6 +75,20 @@ public class FeedbackMail {
      */
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+    /**
+     * Getter
+     * @return the email's template name
+     */
+    public String getTemplateName() {
+    	return templateName;
+    }
+    /**
+     * Setter
+     * @param templateName name of the template
+     */
+    public void setTemplateName(String templateName) {
+    	this.templateName = templateName;
     }
     
     
