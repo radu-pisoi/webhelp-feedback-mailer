@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 
 /**
- * Configuration class that sets the path to the template
+ * Configuration class that sets the path to the template.
  */
 public class FreemarkerConfig {
 
@@ -23,8 +23,8 @@ public class FreemarkerConfig {
 	private String templatesPath;
 	
 	/**
-	 * Sets the path from where to load the templates
-	 * @return bean
+	 * Sets the path from where to load the templates.
+	 * @return A bean reference for FreeMarker configuration.
 	 */
 	@Bean
 	public FreeMarkerConfigurationFactoryBean getFreeMarkerConfiguration() {

@@ -27,7 +27,7 @@ import com.icegreen.greenmail.util.ServerSetup;
  * Test case for {@link EmailService}.
  */
 @TestPropertySource("file:src/test/resources/issue-6/application.properties")
-@ContextConfiguration(classes = {EmailService.class, FeedbackMailerConfiguration.class})
+@ContextConfiguration(classes = {EmailService.class, EmailServerConfiguration.class, FreemarkerConfig.class})
 public class EmailServiceTest extends AbstractTestNGSpringContextTests  {
 	
 	/**

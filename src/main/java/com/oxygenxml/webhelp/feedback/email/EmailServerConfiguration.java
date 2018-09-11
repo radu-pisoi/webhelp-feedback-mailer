@@ -27,7 +27,7 @@ public class EmailServerConfiguration {
 	Logger logger = LoggerFactory.getLogger(EmailServerConfiguration.class);
 	 
 	/**
-	 * Mail protocol
+	 * Mail protocol.
 	 */
 	@Value("${mail.store.protocol}")
     private String protocol;
@@ -64,7 +64,7 @@ public class EmailServerConfiguration {
     private String mailConfigurationPath;
     
     /**
-     * Configures the {@link JavaMailSender} from an external configuration file
+     * Configures the {@link JavaMailSender} from an external configuration file.
      * @return {@link JavaMailSender}
      */
 	@Bean

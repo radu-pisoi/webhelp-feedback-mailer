@@ -23,13 +23,13 @@ public class FeedbackEmailNotifier implements IFeedbackEventListener {
 	private static final Logger logger = LoggerFactory.getLogger(FeedbackEmailNotifier.class);
 
 	/**
-	 * Email service
+	 * Email service.
 	 */
 	@Autowired
 	private EmailService emailService;
 	
 	/**
-	 * Email service
+	 * Email service.
 	 */
 	@Autowired
 	private FeedbackEmailFactory feedbackEmailFactory;
@@ -40,12 +40,12 @@ public class FeedbackEmailNotifier implements IFeedbackEventListener {
 		if (logger.isDebugEnabled()) {
 			logger.debug(String.format("Handle feedback event %s: ", event));
 		}
-		FeedbackEmail feedbackEmail = feedbackEmailFactory.getFeedbackEmail(event);
-		if (logger.isDebugEnabled()) {
-			logger.debug(String.format("feedback email %s: ", feedbackEmail));
-		}
 
 		try {
+			FeedbackEmail feedbackEmail = feedbackEmailFactory.getFeedbackEmail(event);
+			if (logger.isDebugEnabled()) {
+				logger.debug(String.format("feedback email %s: ", feedbackEmail));
+			}
 			emailService.sendMessage(feedbackEmail);
 		} catch (MessagingException | IOException | TemplateException e) {
 			logger.error("Cannot send message. Cause: " + e.getMessage(), e);

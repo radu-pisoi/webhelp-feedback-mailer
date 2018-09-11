@@ -15,15 +15,15 @@ public class FeedbackEmailNotifierTest extends AbstractTestNGSpringContextTests 
 	@Autowired
 	private FeedbackEmailNotifier notifier;
 	
-//	@Test
-//	public void testHandleNewMessageEvent() {		
-//		notifier.handleFeedbackEvent(new IFeedbackEvent() {			
-//			@Override
-//			public FeedbackEventType getType() {
-//				return FeedbackEventType.MESSAGE_APPROVED;
-//			}
-//		});
-//		
-//	}
+/*	@Test
+	public void testHandleNewMessageEvent() {		
+		notifier.handleFeedbackEvent(new IFeedbackEvent() {			
+			@Override
+			public FeedbackEventType getType() {
+				return FeedbackEventType.MESSAGE_APPROVED;
+			}
+		});
+		
+	}*/
 	
 }
