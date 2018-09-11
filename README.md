@@ -12,5 +12,5 @@ Technologies:
 
 Resources:
 * [An Introduction To Building And Sending HTML Email For Web Developers](https://www.smashingmagazine.com/2017/01/introduction-building-sending-html-email-for-web-developers/)
-
+* https://foundation.zurb.com/emails/docs/index.html
 
