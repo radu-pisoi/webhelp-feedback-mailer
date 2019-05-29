@@ -28,6 +28,7 @@ pipeline {
 
         stage ('Analysis') {
             steps {
+                sh 'echo "Start analysis"
                 sh '${M2_HOME}/bin/mvn --batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs spotbugs:spotbugs'
             }
         }
