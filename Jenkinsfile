@@ -27,13 +27,13 @@ pipeline {
         }
         */
 
-        /*
+        
         stage ('Analysis') {
             steps {
                 sh 'echo "Start analysis"'
-                sh 'mvn --batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs'
+                sh 'mvn --batch-mode -V -U -e'
             }
-        }*/
+        }
     }
 
     post {
