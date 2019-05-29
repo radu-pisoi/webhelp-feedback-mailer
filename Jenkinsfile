@@ -14,17 +14,18 @@ pipeline {
                 '''
             }
         }
-
+        /*
         stage ('Build') {
             steps {
                 sh 'mvn clean test -U' 
             }
             post {
                 success {
-                    junit 'target/surefire-reports/**/*.xml' 
+                    junit 'target/surefire-reports/**//*.xml' 
                 }
             }
         }
+        */
 
         stage ('Analysis') {
             steps {
